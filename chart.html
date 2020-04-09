@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html>
+<body>
+
+	<script src="./js/Chart.min.js"></script>
+	<script src="./js/utils.js"></script>
+	<div style="width:100%;">
+		<canvas id="canvas"></canvas>
+	</div>
+	<script>
+		var lineChartData = {
+			labels: ['Apr1', 'Apr2', 'Apr3', 'Apr4'],
+			datasets: [{
+				label: 'PUI',
+				borderColor: window.chartColors.red,
+				backgroundColor: window.chartColors.red,
+				fill: false,
+				data: [
+					0,1,2,3,4
+				],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: 'PUM',
+				borderColor: window.chartColors.blue,
+				backgroundColor: window.chartColors.blue,
+				fill: false,
+				data: [
+					1,2,3,4,5
+				],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: 'Positive',
+				borderColor: window.chartColors.yellow,
+				backgroundColor: window.chartColors.yellow,
+				fill: false,
+				data: [
+					2,3,4,5,6
+				],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: 'Dead',
+				borderColor: window.chartColors.grey,
+				backgroundColor: window.chartColors.grey,
+				fill: false,
+				data: [
+					1,1,1,1,1
+				],
+				yAxisID: 'y-axis-1',
+			}
+			]
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = Chart.Line(ctx, {
+				data: lineChartData,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: false,
+						text: ''
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'left',
+							id: 'y-axis-1',
+						}],
+					}
+				}
+			});
+		};
+	</script>
+</body>
+
+</html>
