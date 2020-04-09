@@ -1,9 +1,6 @@
 <html>
-  <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  </head>
-  <body >
+  <head></head>
+  <body>
     <!--
     BEFORE RUNNING:
     ---------------
@@ -16,42 +13,25 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
-    window.onload = function() {
-                    alert('test');
-                };
-
     function makeApiCall() {
-        
       var params = {
-        // The ID of the spreadsheet to retrieve data from.
+        // The spreadsheet to request.
         spreadsheetId: '1KqMF4eaJengJ_8Dl2dewEL8LpC3WB0uoek9oF0DYkfY',  // TODO: Update placeholder value.
+        // The ranges to retrieve from the spreadsheet.
+        range: 'Monitoring Sheet!B4:B4', 
 
-        // The A1 notation of the values to retrieve.
-        range: 'List of Cash Donors!D4:D4',  // TODO: Update placeholder value.
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-        // valueRenderOption: '',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+        // True if grid data should be returned.
+        // This parameter is ignored if a field mask was set in the request.
+        includeGridData: false,  // TODO: Update placeholder value.
       };
-      console.log("api  as called");
 
-
-
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
+      var request = gapi.client.sheets.spreadsheets.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
-        let total = response.result.values[0];
-
+        console.log(response.result);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
-
     }
 
     function initClient() {
@@ -77,7 +57,9 @@
     }
 
     function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
         makeApiCall();
+      }
     }
 
     function handleSignInClick(event) {
@@ -92,8 +74,7 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-
-
+    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
   </body>
 </html>
-
