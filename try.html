@@ -15,14 +15,8 @@
     <script>
     function makeApiCall() {
       var params = {
-        // The spreadsheet to request.
         spreadsheetId: '1KqMF4eaJengJ_8Dl2dewEL8LpC3WB0uoek9oF0DYkfY',  // TODO: Update placeholder value.
-        // The ranges to retrieve from the spreadsheet.
-        range: 'Monitoring Sheet!B4:B4', 
-
-        // True if grid data should be returned.
-        // This parameter is ignored if a field mask was set in the request.
-        includeGridData: false,  // TODO: Update placeholder value.
+        range: 'Monitoring Sheet!D4:D4',  
       };
 
       var request = gapi.client.sheets.spreadsheets.get(params);
