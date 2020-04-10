@@ -1,4 +1,4 @@
-js_read_json_url.html
+<?php header('Access-Control-Allow-Origin: *'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
