@@ -29,9 +29,9 @@
     }
 
     function initClient() {
-      var API_KEY = 'AIzaSyALkVM1V0UqYlu7DIISYJ9mAxzn4_9ZOms';  // TODO: Update placeholder with desired API key.
+      var API_KEY = 'AIzaSyB8K7wwMPdVkgcUdmGGnBo7Qo6cR9opU7k';  // TODO: Update placeholder with desired API key.
 
-      var CLIENT_ID = '942300299579-tsgtqo7r0oit397rec3f9vsojercnhhm.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
+      var CLIENT_ID = '572260385946-qcreuimptqbtb2f7omtf023vt92m9anu.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
 
       var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
       
